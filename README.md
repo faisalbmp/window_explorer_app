@@ -6,7 +6,8 @@ From the <strong>root directory</strong> of the project, run:</p><pre><code>bun 
 
 DATABASE_URL="postgres://YOUR_USER:YOUR_PASSWORD@localhost:5432/window_explorer_app"
 TEST_DATABASE_URL="postgres://YOUR_USER:YOUR_PASSWORD@localhost:5432/window_explorer_test_db"
-<br class="ProseMirror-trailingBreak"></code></pre></blockquote></li><li><p><strong>Run Database Migrations</strong>
+<br class="ProseMirror-trailingBreak"></code></pre></blockquote></li><li><p><strong>Run Database Scheme Generate</strong> run the drizzle generate script to create the database Scheme your development database</p><pre><code>bun run be:generate
+<br class="ProseMirror-trailingBreak"></code></pre></li><li><p><strong>Run Database Migrations</strong>
 From the <strong>root directory</strong>, run the migration script to create the necessary tables in your development database.</p><pre><code>bun run be:migrate
 <br class="ProseMirror-trailingBreak"></code></pre></li><li><p><strong>Seed the Database (Optional)</strong>
 To populate the development database with sample data, run the following command from the <strong>root directory</strong>:</p><pre><code>bun run be:seed
