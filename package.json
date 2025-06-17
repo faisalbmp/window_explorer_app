@@ -9,6 +9,7 @@
         "dev:fe": "bun --cwd packages/frontend dev",
         "dev": "bun --parallel \"bun run dev:be\" \"bun run dev:fe\"",
         "be:migrate": "bun --cwd packages/backend db:migrate",
+        "be:generate": "bun --cwd packages/backend db:generate",
         "be:seed": "bun --cwd packages/backend db:seed",
         "test:be": "bun --cwd packages/backend test",
         "test:fe": "bun --cwd packages/frontend test",
