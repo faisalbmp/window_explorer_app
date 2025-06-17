@@ -5,7 +5,7 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [vue()],
   test: {
-    environment: 'happy-dom', // or 'jsdom'
+    environment: 'jsdom', // or 'jsdom'
     globals: true,
   },
   resolve: {
