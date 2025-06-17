@@ -11,7 +11,7 @@ From the <strong>root directory</strong>, run the migration script to create the
 <br class="ProseMirror-trailingBreak"></code></pre></li><li><p><strong>Seed the Database (Optional)</strong>
 To populate the development database with sample data, run the following command from the <strong>root directory</strong>:</p><pre><code>bun run be:seed
 <br class="ProseMirror-trailingBreak"></code></pre></li></ol><h3><strong>4. Running for Development</strong></h3><p>Start the development servers for both the frontend and backend.</p><ol><li><p><strong>Start Both Servers</strong>
-From the <strong>root directory</strong>, run the main development script:</p><pre><code>bun run dev
+From the <strong>root directory</strong>, run the main development script:</p><pre><code>bun run dev:fe <br> bun run dev:be
 <br class="ProseMirror-trailingBreak"></code></pre></li><li><p><strong>Access the Applications</strong></p><ul><li><p>Backend API: <code>http://localhost:3000</code></p></li><li><p>Frontend UI: <code>http://localhost:3001</code></p></li></ul><p>Open <code>http://localhost:3001</code> in your browser to use the application.</p></li></ol><h3><strong>5. Running Tests</strong></h3><p>The project includes a full suite of tests for quality assurance.</p><ul><li><p><strong>Backend Tests (Unit &amp; Integration)</strong>
 Run from the <strong>root directory</strong>. Requires <code>TEST_DATABASE_URL</code> to be configured.</p><pre><code>bun run test:be
 <br class="ProseMirror-trailingBreak"></code></pre></li><li><p><strong>Frontend Component Tests</strong>
