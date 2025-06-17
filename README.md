@@ -1,12 +1,40 @@
-Project Setup Guide: Step-by-StepThis guide provides complete instructions for setting up and running the Window Explorer monorepo project. Follow these steps to get the backend, frontend, and all testing environments working correctly.Step 1: PrerequisitesBefore you begin, ensure you have the following software installed on your system:Bun: This project uses Bun as its JavaScript runtime and package manager.PostgreSQL: The backend requires a running PostgreSQL database instance. Make sure you have it installed and the server is running.Git: For version control.Step 2: Initial Project SetupFirst, get the project code and install all the necessary dependencies for both the frontend and backend.Clone the Repository:Open your terminal, navigate to where you want to store the project, and clone the repository.git clone <your-repository-url>
-cd window-explorer-monorepo
-Install All Dependencies:From the root directory of the monorepo, run the following command. Bun will automatically detect the workspaces (packages/*) and install dependencies for both the backend and frontend projects.bun install
-Step 3: Backend Configuration & Database SetupNow, configure the backend to connect to your PostgreSQL database.Set Up Environment Variables:Navigate into the backend directory: cd packages/backend.Copy the example environment file: cp .env.example .env.Open the new .env file and update the DATABASE_URL and TEST_DATABASE_URL with your actual PostgreSQL connection details. Note: The test database should be a separate, empty database.# .env in packages/backend
-DATABASE_URL="postgres://YOUR_USER:YOUR_PASSWORD@localhost:5432/window_explorer_app"
-TEST_DATABASE_URL="postgres://YOUR_USER:YOUR_PASSWORD@localhost:5432/window_explorer_test_db"
-Run Database Migrations:From the root directory of the monorepo, run the migration script. This will create the necessary tables in your development database.bun run be:migrate
-Seed the Database (Optional but Recommended):To populate your development database with initial sample data, run the seeder script from the root directory.bun run be:seed
-Step 4: Running the ApplicationsWith the setup complete, you can now start the development servers.Start Both Servers:From the root directory, run the main development script. This will start both the backend and frontend servers in parallel.bun run dev
-Access the Applications:The backend will be running at http://localhost:3000.The frontend will be running at http://localhost:3001.Open http://localhost:3001 in your browser to see the File Explorer application.Step 5: Running TestsThe project is equipped with unit, integration, and E2E tests.Run Backend Tests:To run the unit and integration tests for the backend, execute the following command from the root directory:bun run test:be
-This requires the TEST_DATABASE_URL to be correctly configured.Run Frontend Component Tests:To run the unit tests for the Vue components, execute this command from the root directory:bun run test:fe
-Run End-to-End (E2E) Tests:E2E tests simulate a real user in a browser and require the development servers to be running.First, ensure the servers are running with bun run dev in one terminal.In a second terminal, run the E2E test script from the root directory:bun run test:e2e
+Window Explorer Monorepo
+This repository contains the source code for a web-based file explorer application, built as a monorepo with a separate frontend and backend.
+
+Frontend: A responsive user interface built with Nuxt.js and Vue 3, styled with Tailwind CSS.
+
+Backend: A robust API service powered by Elysia.js on the Bun runtime, connected to a PostgreSQL database with Drizzle ORM.
+
+The project is structured as a monorepo managed with Bun Workspaces, allowing for unified dependency management and streamlined development workflows.
+
+Features
+Two-Panel Layout: Classic file explorer interface with a folder tree on the left and content view on the right.
+
+Hierarchical Folder View: The left panel displays the complete folder structure, which can be expanded and collapsed.
+
+Dynamic Content Display: Clicking a folder in the tree dynamically loads its subfolders and files into the right panel.
+
+Modern Tech Stack: Utilizes a fast, modern, and type-safe stack with Bun, TypeScript, Elysia.js, and Nuxt.js.
+
+Comprehensive Testing: Includes unit, integration, and End-to-End (E2E) tests for both frontend and backend to ensure reliability.
+
+Getting Started
+
+Quick Start
+Install dependencies from the root directory:
+
+bun install
+
+Configure your .env file in packages/backend.
+
+Run database migrations from the root directory:
+
+bun run be:migrate
+
+Start both development servers from the root directory:
+
+bun run dev
+
+Backend API will be available at http://localhost:3000.
+
+Frontend application will be available at http://localhost:3001.
