@@ -1,0 +1,45 @@
+# Environment variables
+# Ignore all .env files, but keep the example template
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules
+/packages/frontend/.nuxt
+/packages/frontend/.output
+/packages/backend/dist
+
+# Drizzle ORM
+/packages/backend/drizzle
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE directories
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Test reports
+coverage
+.nyc_output

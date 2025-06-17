@@ -1,0 +1,2 @@
+export interface FsContentNode { id: number; name: string; type: 'folder' | 'file'; parentId: number | null; }
+export interface FsTreeNode { id: number; name: string; parentId: number | null; children: FsTreeNode[]; isOpen: boolean; }
