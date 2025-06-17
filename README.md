@@ -1,40 +1,21 @@
-Window Explorer Monorepo
-This repository contains the source code for a web-based file explorer application, built as a monorepo with a separate frontend and backend.
+<div contenteditable="true" translate="no" class="ProseMirror"><h1>Getting Started: A Step-by-Step Guide</h1><p>This guide provides complete instructions for setting up, configuring, and running the entire monorepo project on a local machine.</p><h3><strong>1. Prerequisites</strong></h3><p>Before you begin, ensure you have the following software installed on your system:</p><ul><li><p><a href="https://bun.sh/" title="null"><strong>Bun</strong></a>: The JavaScript runtime and package manager used for this project.</p></li><li><p><a href="https://www.postgresql.org/download/" title="null"><strong>PostgreSQL</strong></a>: The database for the backend. Please ensure the server is installed and running.</p></li><li><p><a href="https://git-scm.com/" title="null"><strong>Git</strong></a>: For cloning the repository.</p></li></ul><h3><strong>2. Installation &amp; Initial Setup</strong></h3><p>First, clone the project repository and install all dependencies.</p><ol><li><p><strong>Clone the Repository</strong></p><pre><code>git clone &lt;your-repository-url&gt;
+cd window-explorer-monorepo
+<br class="ProseMirror-trailingBreak"></code></pre></li><li><p><strong>Install Dependencies</strong>
+From the <strong>root directory</strong> of the project, run:</p><pre><code>bun install
+<br class="ProseMirror-trailingBreak"></code></pre><blockquote><p><strong>Note</strong>: This single command installs dependencies for both the <code>backend</code> and <code>frontend</code> workspaces.</p></blockquote></li></ol><h3><strong>3. Backend &amp; Database Configuration</strong></h3><p>Configure the backend environment and set up the database schema.</p><ol><li><p><strong>Set Up Environment Variables</strong></p><ul><li><p>Navigate to the backend package: <code>cd packages/backend</code></p></li><li><p>Create a local environment file by copying the template: <code>cp .env.example .env</code></p></li><li><p>Open the new <code>.env</code> file and update the connection strings with your PostgreSQL details. The <code>TEST_DATABASE_URL</code> should point to a separate, empty database.</p></li></ul><blockquote><pre><code># packages/backend/.env
 
-Frontend: A responsive user interface built with Nuxt.js and Vue 3, styled with Tailwind CSS.
-
-Backend: A robust API service powered by Elysia.js on the Bun runtime, connected to a PostgreSQL database with Drizzle ORM.
-
-The project is structured as a monorepo managed with Bun Workspaces, allowing for unified dependency management and streamlined development workflows.
-
-Features
-Two-Panel Layout: Classic file explorer interface with a folder tree on the left and content view on the right.
-
-Hierarchical Folder View: The left panel displays the complete folder structure, which can be expanded and collapsed.
-
-Dynamic Content Display: Clicking a folder in the tree dynamically loads its subfolders and files into the right panel.
-
-Modern Tech Stack: Utilizes a fast, modern, and type-safe stack with Bun, TypeScript, Elysia.js, and Nuxt.js.
-
-Comprehensive Testing: Includes unit, integration, and End-to-End (E2E) tests for both frontend and backend to ensure reliability.
-
-Getting Started
-
-Quick Start
-Install dependencies from the root directory:
-
-bun install
-
-Configure your .env file in packages/backend.
-
-Run database migrations from the root directory:
-
-bun run be:migrate
-
-Start both development servers from the root directory:
-
-bun run dev
-
-Backend API will be available at http://localhost:3000.
-
-Frontend application will be available at http://localhost:3001.
+DATABASE_URL="postgres://YOUR_USER:YOUR_PASSWORD@localhost:5432/window_explorer_app"
+TEST_DATABASE_URL="postgres://YOUR_USER:YOUR_PASSWORD@localhost:5432/window_explorer_test_db"
+<br class="ProseMirror-trailingBreak"></code></pre></blockquote></li><li><p><strong>Run Database Migrations</strong>
+From the <strong>root directory</strong>, run the migration script to create the necessary tables in your development database.</p><pre><code>bun run be:migrate
+<br class="ProseMirror-trailingBreak"></code></pre></li><li><p><strong>Seed the Database (Optional)</strong>
+To populate the development database with sample data, run the following command from the <strong>root directory</strong>:</p><pre><code>bun run be:seed
+<br class="ProseMirror-trailingBreak"></code></pre></li></ol><h3><strong>4. Running for Development</strong></h3><p>Start the development servers for both the frontend and backend.</p><ol><li><p><strong>Start Both Servers</strong>
+From the <strong>root directory</strong>, run the main development script:</p><pre><code>bun run dev
+<br class="ProseMirror-trailingBreak"></code></pre></li><li><p><strong>Access the Applications</strong></p><ul><li><p>Backend API: <code>http://localhost:3000</code></p></li><li><p>Frontend UI: <code>http://localhost:3001</code></p></li></ul><p>Open <code>http://localhost:3001</code> in your browser to use the application.</p></li></ol><h3><strong>5. Running Tests</strong></h3><p>The project includes a full suite of tests for quality assurance.</p><ul><li><p><strong>Backend Tests (Unit &amp; Integration)</strong>
+Run from the <strong>root directory</strong>. Requires <code>TEST_DATABASE_URL</code> to be configured.</p><pre><code>bun run test:be
+<br class="ProseMirror-trailingBreak"></code></pre></li><li><p><strong>Frontend Component Tests</strong>
+Run from the <strong>root directory</strong>.</p><pre><code>bun run test:fe
+<br class="ProseMirror-trailingBreak"></code></pre></li><li><p><strong>End-to-End (E2E) Tests</strong>
+E2E tests require the development servers to be running first.</p><ol><li><p>In one terminal, start the servers: <code>bun run dev</code></p></li><li><p>In a <strong>second terminal</strong>, run the E2E test command from the <strong>root directory</strong>:</p><pre><code>bun run test:e2e
+<br class="ProseMirror-trailingBreak"></code></pre></li></ol></li></ul></div>
